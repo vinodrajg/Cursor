@@ -10,6 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -19,16 +20,19 @@
             justify-content: center;
             padding: 20px;
         }
+
         .container {
             width: 100%;
             max-width: 500px;
         }
+
         .form-wrapper {
             background: white;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             color: #333;
             text-align: center;
@@ -36,28 +40,35 @@
             font-size: 28px;
             font-weight: 600;
         }
+
         .subtitle {
             text-align: center;
             color: #666;
             margin-bottom: 30px;
             font-size: 16px;
         }
+
         .form {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
+
         .form-group {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
+
         label {
             font-weight: 500;
             color: #333;
             font-size: 14px;
         }
-        input[type="text"], input[type="date"], select {
+
+        input[type="text"],
+        input[type="date"],
+        select {
             padding: 12px 16px;
             border: 2px solid #e1e5e9;
             border-radius: 8px;
@@ -65,23 +76,29 @@
             transition: all 0.3s ease;
             background-color: #fafafa;
         }
-        input[type="text"]:focus, input[type="date"]:focus, select:focus {
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        select:focus {
             outline: none;
             border-color: #667eea;
             background-color: white;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
+
         .error-message {
             color: #ef4444;
             font-size: 12px;
             margin-top: 4px;
             min-height: 16px;
         }
+
         .form-actions {
             display: flex;
             gap: 12px;
             margin-top: 20px;
         }
+
         .btn {
             padding: 12px 24px;
             border: none;
@@ -92,22 +109,27 @@
             transition: all 0.3s ease;
             flex: 1;
         }
+
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         }
+
         .btn-secondary {
             background: #f3f4f6;
             color: #374151;
             border: 2px solid #e5e7eb;
         }
+
         .btn-secondary:hover {
             background: #e5e7eb;
         }
+
         .success-message {
             background: #f0fdf4;
             border: 2px solid #10b981;
@@ -117,15 +139,18 @@
             text-align: center;
             display: none;
         }
+
         .success-message h3 {
             color: #10b981;
             margin-bottom: 12px;
         }
+
         .success-message div {
             color: #374151;
             font-size: 14px;
             line-height: 1.5;
         }
+
         select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
@@ -133,6 +158,20 @@
             background-repeat: no-repeat;
             background-size: 16px;
             padding-right: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .form-wrapper {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -145,13 +184,26 @@
             <form id="userForm" class="form">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name" minlength="2" maxlength="100">
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        placeholder="Enter your full name"
+                        minlength="2"
+                        maxlength="100"
+                    >
                     <span class="error-message" id="nameError"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="dob">Date of Birth *</label>
-                    <input type="date" id="dob" name="dob" required>
+                    <input 
+                        type="date" 
+                        id="dob" 
+                        name="dob" 
+                        required
+                    >
                     <span class="error-message" id="dobError"></span>
                 </div>
 
@@ -172,6 +224,20 @@
                         <option value="IN">India</option>
                         <option value="BR">Brazil</option>
                         <option value="MX">Mexico</option>
+                        <option value="RU">Russia</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="KR">South Korea</option>
+                        <option value="SG">Singapore</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="SE">Sweden</option>
+                        <option value="NO">Norway</option>
+                        <option value="DK">Denmark</option>
+                        <option value="FI">Finland</option>
+                        <option value="CH">Switzerland</option>
+                        <option value="AT">Austria</option>
+                        <option value="BE">Belgium</option>
+                        <option value="IE">Ireland</option>
+                        <option value="NZ">New Zealand</option>
                         <option value="OTHER">Other</option>
                     </select>
                     <span class="error-message" id="countryError"></span>
@@ -191,13 +257,17 @@
     </div>
 
     <script>
+        // Set max date to today for date of birth
         document.getElementById('dob').max = new Date().toISOString().split('T')[0];
 
+        // Form validation and submission
         document.getElementById('userForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Clear previous errors
             clearErrors();
             
+            // Get form data
             const formData = new FormData(this);
             const name = formData.get('name').trim();
             const dob = formData.get('dob');
@@ -205,11 +275,13 @@
             
             let isValid = true;
             
+            // Validate name
             if (!name || name.length < 2) {
                 showError('nameError', 'Please enter a valid name (at least 2 characters)');
                 isValid = false;
             }
             
+            // Validate date of birth
             if (!dob) {
                 showError('dobError', 'Please select your date of birth');
                 isValid = false;
@@ -227,26 +299,34 @@
                 }
             }
             
+            // Validate country
             if (!country) {
                 showError('countryError', 'Please select your country');
                 isValid = false;
             }
             
             if (isValid) {
+                // Show success message
                 const successDiv = document.getElementById('successMessage');
                 const dataDiv = document.getElementById('submittedData');
                 
                 const dobDate = new Date(dob);
                 const age = Math.floor((new Date() - dobDate) / (365.25 * 24 * 60 * 60 * 1000));
-                const countryName = document.querySelector('option[value="' + country + '"]').textContent;
+                const countryName = document.querySelector(`option[value="${country}"]`).textContent;
                 
-                dataDiv.innerHTML = '<p><strong>Name:</strong> ' + name + '</p><p><strong>Date of Birth:</strong> ' + new Date(dob).toLocaleDateString() + '</p><p><strong>Age:</strong> ' + age + ' years old</p><p><strong>Country:</strong> ' + countryName + '</p>';
+                dataDiv.innerHTML = `
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Date of Birth:</strong> ${new Date(dob).toLocaleDateString()}</p>
+                    <p><strong>Age:</strong> ${age} years old</p>
+                    <p><strong>Country:</strong> ${countryName}</p>
+                `;
                 
                 successDiv.style.display = 'block';
                 this.style.display = 'none';
             }
         });
         
+        // Reset form
         document.getElementById('userForm').addEventListener('reset', function() {
             clearErrors();
             document.getElementById('successMessage').style.display = 'none';
@@ -262,6 +342,7 @@
             errorElements.forEach(element => element.textContent = '');
         }
         
+        // Real-time validation
         document.getElementById('name').addEventListener('input', function() {
             if (this.value.trim().length >= 2) {
                 document.getElementById('nameError').textContent = '';
